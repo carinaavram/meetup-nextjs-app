@@ -38,7 +38,8 @@ export async function getStaticPaths() {
   return {
     //we decribe the dinamic segment values
     //generate the array of paths dinamically
-    fallback: false,
+    //teling nextjs that the list of paths may not be all, may be more pages
+    fallback: 'blocking',
     paths: meetups.map((meetup) => ({
       params: { meetupId: meetup._id.toString() },
     })),
